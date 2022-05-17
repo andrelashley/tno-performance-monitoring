@@ -17,7 +17,7 @@ public class SnippetsController : ControllerBase
         this.repository = repository;
     }
 
-    // [HttpGet(Name = "GetWeatherForecast")]
+    [HttpGet]
     public async Task<IEnumerable<SnippetDto>> Get()
     {
         return await repository.GetAll();
