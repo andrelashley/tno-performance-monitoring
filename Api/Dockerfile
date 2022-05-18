@@ -7,10 +7,10 @@ ENV ASPNETCORE_URLS=http://+:5000
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0-focal AS build
 WORKDIR /src
-COPY ["Api.csproj", "./"]
-RUN dotnet restore "Api.csproj"
+COPY ["Api/Api.csproj", "Api/"]
+RUN dotnet restore "Api/Api.csproj"
 COPY . .
-WORKDIR "/src/."
+WORKDIR "/src/Api"
 RUN dotnet build "Api.csproj" -c Release -o /app/build
 
 FROM build AS publish
